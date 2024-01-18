@@ -4629,7 +4629,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -5847,6 +5847,14 @@ PrefabInstance:
     - target: {fileID: 976856325980871544, guid: 849ff447af528de44840d1af79403ba2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812952253477012687, guid: 849ff447af528de44840d1af79403ba2, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 7c9414c82fe69704a9e4dea7c525c3c3, type: 3}
+    - target: {fileID: 6812952253477012687, guid: 849ff447af528de44840d1af79403ba2, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
