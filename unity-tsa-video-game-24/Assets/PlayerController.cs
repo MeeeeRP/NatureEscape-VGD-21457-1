@@ -15,18 +15,22 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    SpriteRenderer spriteRenderer;
+
+    bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
     private void FixedUpdate() {
         // If movement input is not 0 try to move
-//        if (!isMoving) {
+        if (canMove) {
             if (movementInput.x != 0) movementInput.y = 0;
 
             if(movementInput != Vector2.zero) {
@@ -38,11 +42,12 @@ public class PlayerController : MonoBehaviour
                 if (!success) {
                     success = TryMove(new Vector2(movementInput.x, 0));
 
-                    if(!success) {
+                }
+
+                if(!success) {
                         success = TryMove(new Vector2(0, movementInput.y));     
                         
                     }
-                }
 
 //                animator.SetBool("isMoving", success);
                 isMoving = true;
@@ -51,13 +56,21 @@ public class PlayerController : MonoBehaviour
                 isMoving = false;
             }
 
+            // Set direction of sprite to movement direction
+            if (movementInput.x < 0) {
+                spriteRenderer.flipX = true;
+            } else if (movementInput.x > 0) {
+                spriteRenderer.flipX = false;
+            }
             UpdateAnimation();
 
-//        }
+        }
 
     }
 
     private bool TryMove(Vector2 direction) {
+        if(direction != Vector2.zero) {
+
         int count = rb.Cast(
             direction, // X and Y values between -1 and 1 that represent the direction from the body to look for collision
             movementFilter, // List of settings that determine what the raycast can collide into and what it will ignore
@@ -71,6 +84,9 @@ public class PlayerController : MonoBehaviour
             else {
                 return false;
             }
+        } else {
+            return false;
+        }
     }
 
     void UpdateAnimation() {
@@ -85,5 +101,19 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue movementValue) {
         movementInput = movementValue.Get<Vector2>();
+    }
+
+    void OnTalk() {
+        LockMovement();
+        print("Move paused");
+        UnlockMovement();
+    }
+
+    public void LockMovement() {
+        canMove = false;
+    }
+
+    public void UnlockMovement() {
+        canMove = true;
     }
 }

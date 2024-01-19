@@ -147,7 +147,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  isMoving: 0
+  isMoving: 1
 --- !u!50 &4208334990961816665
 Rigidbody2D:
   serializedVersion: 4
