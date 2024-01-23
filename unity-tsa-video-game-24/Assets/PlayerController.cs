@@ -39,21 +39,21 @@ public class PlayerController : MonoBehaviour
                 
                 bool success = TryMove(movementInput);
 
-                if (!success) {
+                if (!success && movementInput.x > 0) {
                     success = TryMove(new Vector2(movementInput.x, 0));
 
                 }
 
-                if(!success) {
+                if(!success && movementInput.y > 0) {
                         success = TryMove(new Vector2(0, movementInput.y));     
                         
                     }
 
-//                animator.SetBool("isMoving", success);
-                isMoving = true;
+               animator.SetBool("isMoving", success);
+                // isMoving = true;
             } else {
-//                animator.SetBool("isMoving", false);
-                isMoving = false;
+               animator.SetBool("isMoving", false);
+                // isMoving = false;
             }
 
             // Set direction of sprite to movement direction
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
             } else if (movementInput.x > 0) {
                 spriteRenderer.flipX = false;
             }
-            UpdateAnimation();
+            // UpdateAnimation();
 
         }
 
@@ -104,9 +104,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnTalk() {
-        LockMovement();
-        print("Move paused");
-        UnlockMovement();
+        // LockMovement();
+        animator.SetTrigger("NPCInteract");
+        // UnlockMovement();
     }
 
     public void LockMovement() {
