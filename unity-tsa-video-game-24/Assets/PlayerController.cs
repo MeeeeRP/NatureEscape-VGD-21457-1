@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public bool isMoving;
+    public PlayerInteract playerInteract;
 
 
     Vector2 movementInput;
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
                 spriteRenderer.flipX = true;
             } else if (movementInput.x > 0) {
                 spriteRenderer.flipX = false;
+
             }
             // UpdateAnimation();
 
@@ -107,6 +109,16 @@ public class PlayerController : MonoBehaviour
         // LockMovement();
         animator.SetTrigger("NPCInteract");
         // UnlockMovement();
+    }
+
+    public void PlayerInteract() {
+        LockMovement();
+        if(spriteRenderer.flipX == true) {
+        playerInteract.InteractLeft();
+        } else {
+        playerInteract.InteractRight();
+        }
+
     }
 
     public void LockMovement() {

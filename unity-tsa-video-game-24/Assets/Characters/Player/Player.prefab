@@ -149,6 +149,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   isMoving: 1
+  playerInteract: {fileID: 1450505973225667476}
 --- !u!50 &4208334990961816665
 Rigidbody2D:
   serializedVersion: 4
@@ -205,7 +206,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0006680526, y: -0.13479714}
@@ -332,3 +333,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397e8638f424a4d0f9ab913bb0b84cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactDirection: 0
