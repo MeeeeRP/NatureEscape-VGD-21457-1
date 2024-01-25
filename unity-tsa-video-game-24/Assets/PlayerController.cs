@@ -121,6 +121,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void EndPlayerInteract() {
+        UnlockMovement();
+        playerInteract.StopInteract();
+    }
+
     public void LockMovement() {
         canMove = false;
     }
