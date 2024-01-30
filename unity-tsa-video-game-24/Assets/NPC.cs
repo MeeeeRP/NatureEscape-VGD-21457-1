@@ -9,7 +9,7 @@ public class NPC : MonoBehaviour
     public void Talk() {
         animator.SetTrigger("Talk");
         print("npc talk aniamation");
-    PlayerInteract.fairyTalk -= Talk;
+        PlayerInteractS.fairyTalk -= Talk;
 
     }
     
@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour
     void Start()
     {
     animator= GetComponent<Animator>();   
-    PlayerInteract.fairyTalk += Talk;
+    PlayerInteractS.fairyTalk += Talk;
     }
 
     // // Update is called once per frame

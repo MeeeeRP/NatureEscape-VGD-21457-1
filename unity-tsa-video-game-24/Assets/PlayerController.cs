@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,8 @@ public class PlayerController : MonoBehaviour
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public bool isMoving;
-    public PlayerInteract playerInteract;
+    public PlayerInteractS playerInteract;
+    
 
 
     Vector2 movementInput;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     bool canMove = true;
+    bool puzzle = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        PlayerInteractS.fairyTalk += PuzzleOne;
+
     }
 
 
@@ -122,7 +127,10 @@ public class PlayerController : MonoBehaviour
     }
 
     public void EndPlayerInteract() {
+        if (!puzzle) {
         UnlockMovement();
+        print("end interact unlock");
+        }
         playerInteract.StopInteract();
     }
 
@@ -132,5 +140,14 @@ public class PlayerController : MonoBehaviour
 
     public void UnlockMovement() {
         canMove = true;
+        print("movementLocked");
+    }
+
+    public void PuzzleOne() {
+        print("2... puzzle one start");
+        puzzle = true;
+        LockMovement();
+        spriteRenderer.enabled = false;
+        PlayerInteractS.fairyTalk -= PuzzleOne;
     }
 }

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteract : MonoBehaviour
+public class PlayerInteractS : MonoBehaviour
 {
     public Collider2D interactCollider;
     Vector2 rightInteractOffset;
     // public NPC npcScript;
 
     // event code =>
-    public delegate void EventHandler();
-    public static EventHandler fairyTalk;
+    public delegate void LevelOneEvent();
+    public static LevelOneEvent fairyTalk;
 
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class PlayerInteract : MonoBehaviour
     {
         // interactCollider = GetComponent<Collider2D>();
         rightInteractOffset = transform.position;
-        fairyTalk += PuzzleOne;
+        // fairyTalk += PuzzleOne;
     }
 
     public void InteractRight() {
@@ -52,10 +52,10 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void PuzzleOne() {
-        print("2... puzzle one start");
-        fairyTalk -= PuzzleOne;
-    }
+    // void PuzzleOne() {
+    //     print("2... puzzle one start");
+    //     fairyTalk -= PuzzleOne;
+    // }
 
     // // Update is called once per frame
     // void Update()
