@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1226469105749147252}
   - component: {fileID: 1787293950316594449}
   m_Layer: 0
-  m_Name: Farie
+  m_Name: Fairy
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

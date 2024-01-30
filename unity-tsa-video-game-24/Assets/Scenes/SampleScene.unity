@@ -16108,7 +16108,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 399412953978625664, guid: ae452270e503b45489fc7ddd793c7ae3, type: 3}
       propertyPath: m_Name
-      value: Farie
+      value: Fairy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107969622209583333, guid: ae452270e503b45489fc7ddd793c7ae3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6467122988145008463, guid: ae452270e503b45489fc7ddd793c7ae3, type: 3}
       propertyPath: m_LocalPosition.x

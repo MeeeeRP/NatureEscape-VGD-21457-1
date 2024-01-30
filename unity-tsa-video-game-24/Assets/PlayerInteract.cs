@@ -6,22 +6,29 @@ public class PlayerInteract : MonoBehaviour
 {
     public Collider2D interactCollider;
     Vector2 rightInteractOffset;
+    // public NPC npcScript;
+
+    // event code =>
+    public delegate void EventHandler();
+    public static EventHandler fairyTalk;
+
 
     // Start is called before the first frame update
     void Start()
     {
         // interactCollider = GetComponent<Collider2D>();
         rightInteractOffset = transform.position;
+        fairyTalk += PuzzleOne;
     }
 
     public void InteractRight() {
-        print("Attack Right");
+        print("Talk Right");
         interactCollider.enabled = true;
         transform.localPosition = rightInteractOffset;
     }
 
     public void InteractLeft() {
-        print("Attack Left");
+        print("Talk Left");
         interactCollider.enabled = true;
         transform.localPosition = new Vector2(rightInteractOffset.x * -1, rightInteractOffset.y);
     }
@@ -33,17 +40,27 @@ public class PlayerInteract : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "NPC") {
             // NPC talk
-            print("npc talk trigger");
+            // print("npc talk trigger");
+
+            // npcScript.Talk();
+            fairyTalk?.Invoke();
+            // print("1... Puzzle one start");
+
         } else if (other.tag == "Object") {
             // Pickup object
             // Add to inventory
         }
     }
 
+    void PuzzleOne() {
+        print("2... puzzle one start");
+        fairyTalk -= PuzzleOne;
+    }
 
     // // Update is called once per frame
     // void Update()
     // {
         
     // }
+
 }
