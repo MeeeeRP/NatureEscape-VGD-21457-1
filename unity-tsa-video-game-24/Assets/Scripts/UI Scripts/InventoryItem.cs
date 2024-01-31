@@ -13,8 +13,8 @@ public class InventoryItem : MonoBehaviour
 {
     [SerializeField]
     private Image itemImage;
-    [SerializeField]
-    private TMP_Text quantityTxt;
+    // [SerializeField]
+    // private TMP_Text quantityTxt;
 
     [SerializeField]
     private Image borderImage;
@@ -39,10 +39,10 @@ public class InventoryItem : MonoBehaviour
             borderImage.enabled = false;
         }
 
-        public void SetData(Sprite sprite, int quantity) {
+        public void SetData(Sprite sprite) { // , int quantity
             this.itemImage.gameObject.SetActive(true);
             this.itemImage.sprite = sprite;
-            this.quantityTxt.text = quantity + "";
+            // this.quantityTxt.text = quantity + "";
             empty = false;
         }
 

@@ -144,6 +144,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void PuzzleOne() {
+        // need to trigger camera switch here by activating "Change" trigger
         print("2... puzzle one start");
         puzzle = true;
         LockMovement();
