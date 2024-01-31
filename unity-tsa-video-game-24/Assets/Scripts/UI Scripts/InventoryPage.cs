@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class InventoryPage : MonoBehaviour
 {
@@ -10,18 +12,68 @@ public class InventoryPage : MonoBehaviour
     [SerializeField]
     private RectTransform contentPanel;
 
-    List<InventoryItem> ListOfUIItems = new List<InventoryItem>();
+    [SerializeField]
+    private InventoryDescription itemDescription;
 
+    List<InventoryItem> listOfUIItems = new List<InventoryItem>();
+
+    public Sprite image;
+    public int quantity;
+    public string title, description;
+
+    private void Awake() {
+        Hide();
+        itemDescription.ResetDescription();
+    }
     public void InitializeInventoryUI(int inventorySize) {
         for (int i = 0; i < inventorySize; i++) {
             InventoryItem uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
             uiItem.transform.SetParent(contentPanel);
-            ListOfUIItems.Add(uiItem);
+            listOfUIItems.Add(uiItem);
+            uiItem.OnItemClicked += HandleItemSelection;
+            uiItem.OnItemBeginDrag += HandleBeginDrag;
+            uiItem.OnItemDroppedOn += HandleSwap;
+            uiItem.OnItemEndDrag += HandleEndDrag;
+            uiItem.OnRightMouseBtnClick += HandleShowItemActions;
         }
     }
 
+    private void HandleShowItemActions(InventoryItem item)
+    {
+
+    }
+
+
+    private void HandleEndDrag(InventoryItem item)
+    {
+
+    }
+
+
+    private void HandleSwap(InventoryItem item)
+    {
+
+    }
+
+
+    private void HandleBeginDrag(InventoryItem item)
+    {
+
+    }
+
+
+    private void HandleItemSelection(InventoryItem item)
+    {
+        itemDescription.SetDescription(image, title, description);
+        listOfUIItems[0].Select();
+    }
+
+
     public void Show() {
         gameObject.SetActive(true);
+        itemDescription.ResetDescription();
+
+        listOfUIItems[0].SetData(image, quantity);
     }
 
     public void Hide() {

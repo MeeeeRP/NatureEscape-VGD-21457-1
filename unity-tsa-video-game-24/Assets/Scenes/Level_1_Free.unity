@@ -16332,7 +16332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 797127725}
-  inventorySize: 10
+  inventorySize: 12
 --- !u!1001 &2783678901619628230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16777,6 +16777,22 @@ PrefabInstance:
     - target: {fileID: 6750095927022361309, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -189.95343
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978827553105463178, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: -913525408, guid: cdf829d66da0d2242b69f8b2f64aedb0, type: 3}
+    - target: {fileID: 6978827553105463178, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: title
+      value: Seed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978827553105463178, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: quantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978827553105463178, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: description
+      value: uh yes thiss is skjaf d
       objectReference: {fileID: 0}
     - target: {fileID: 8293161164257845734, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: m_AnchorMax.y
