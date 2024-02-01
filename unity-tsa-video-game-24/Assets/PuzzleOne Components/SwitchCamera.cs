@@ -11,6 +11,7 @@ public class SwitchCamera : MonoBehaviour
     public int Manager;
 
     public PlayerInteractS playerInteract;
+    bool puzzleOne = false;
 
 
     public void Start() {
@@ -21,6 +22,13 @@ public class SwitchCamera : MonoBehaviour
         //Use this to disable secondary Camera
         Camera_2.enabled = false;
         PlayerInteractS.fairyTalk += ChangeCamera;
+    }
+
+    void Update() {
+        if (puzzleOne) {
+        PlayerInteractS.fairyTalk -= ChangeCamera;
+
+        }
     }
 
     public void ManagerCamera() {
@@ -45,8 +53,8 @@ public class SwitchCamera : MonoBehaviour
 
     public void ChangeCamera() {
         GetComponent<Animator>().SetTrigger("Change");
-        PlayerInteractS.fairyTalk -= ChangeCamera;
         print("change trigger");
+        puzzleOne = true;
     }
     
 }
