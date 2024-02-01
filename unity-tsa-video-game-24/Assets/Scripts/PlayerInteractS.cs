@@ -40,7 +40,7 @@ public class PlayerInteractS : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "NPC") {
             // NPC talk
-            // print("npc talk trigger");
+            print("npc talk trigger");
 
             // npcScript.Talk();
             fairyTalk?.Invoke();
