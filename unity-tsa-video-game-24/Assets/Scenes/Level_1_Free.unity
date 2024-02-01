@@ -14953,8 +14953,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 1050
-    m_Right: 0
+    m_Left: 0
+    m_Right: 1050
     m_Top: 800
     m_Bottom: 0
   m_ChildAlignment: 0
@@ -17215,6 +17215,10 @@ PrefabInstance:
       propertyPath: title
       value: Daylily
       objectReference: {fileID: 0}
+    - target: {fileID: 6978827553105463178, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: image2
+      value: 
+      objectReference: {fileID: -1212247902, guid: cdf829d66da0d2242b69f8b2f64aedb0, type: 3}
     - target: {fileID: 6978827553105463178, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: description
       value: 'Color: Yellow Type: Perennial'
