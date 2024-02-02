@@ -24,12 +24,13 @@ public class SwitchCamera : MonoBehaviour
         PlayerInteractS.fairyTalk += ChangeCamera;
     }
 
-    void Update() {
-        if (puzzleOne) {
+    private void OnDestroy()
+{
+    if (puzzleOne)
+    {
         PlayerInteractS.fairyTalk -= ChangeCamera;
-
-        }
     }
+}
 
     public void ManagerCamera() {
         print("Manager run");
@@ -55,6 +56,7 @@ public class SwitchCamera : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Change");
         print("change trigger");
         puzzleOne = true;
+        OnDestroy();
     }
     
 }

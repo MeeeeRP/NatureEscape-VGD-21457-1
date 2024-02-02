@@ -16861,7 +16861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 797127725}
-  inventorySize: 10
+  inventoryData: {fileID: 11400000, guid: 1fb5b5672fe38c142843fd51b8c56cba, type: 2}
 --- !u!1001 &2783678901619628230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17266,6 +17266,22 @@ PrefabInstance:
     - target: {fileID: 8865121245689247061, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: m_Spacing.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: m_Spacing.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: m_CellSize.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: m_CellSize.y
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
