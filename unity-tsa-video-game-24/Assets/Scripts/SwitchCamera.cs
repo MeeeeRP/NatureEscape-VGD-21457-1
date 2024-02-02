@@ -45,11 +45,14 @@ public class SwitchCamera : MonoBehaviour
     void Cam_1() {
         Camera_1.enabled = true;
         Camera_2.enabled = false;
+        Camera_1 = Camera.main;
+
     }
 
         void Cam_2() {
         Camera_2.enabled = true;
         Camera_1.enabled = false;
+        Camera_2 = Camera.main;
     }
 
     public void ChangeCamera() {

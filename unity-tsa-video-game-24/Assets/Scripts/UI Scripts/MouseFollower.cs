@@ -20,6 +20,15 @@ public class MouseFollower : MonoBehaviour
     }
 
     void Update() {
+        MousePosition();
+    }
+
+    public void Toggle(bool val) {
+        Debug.Log($"Item toggled {val}");
+        gameObject.SetActive(val);
+    }
+
+    public Vector2 MousePosition() {
         Vector2 position;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             (RectTransform)canvas.transform,
@@ -28,10 +37,6 @@ public class MouseFollower : MonoBehaviour
             out position
                 );
         transform.position = canvas.transform.TransformPoint(position);
-    }
-
-    public void Toggle(bool val) {
-        Debug.Log($"Item toggled {val}");
-        gameObject.SetActive(val);
+        return transform.position;
     }
 }

@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class PuzzlePiece : MonoBehaviour
 {
-    private bool _dragging;
 
-    void Update() {
-        if(!_dragging) return;
+    // private MouseFollower mouseFollowerS;
+    private bool dragging;
+    private Vector2 originalPosition;
 
-        // var mousePosition= (Vector2)Camera.ScreenToWorldPoint(Input.mousePosition);
-
-        // transform.position= mousePosition;
+    void Awake() {
+        originalPosition = transform.position;
     }
+
+    // void Update() {
+    //     if(!_dragging) return;
+
+    //     var mousePosition = mouseFollowerS.MousePosition();
+
+    //     transform.position = mousePosition;
+    // }
     void OnMouseDown() {
-        _dragging = true;
+        dragging = true;
         
+    }
+
+    void OnMouseUp() {
+        // transform.position = originalPosition;
+        dragging=false;
     }
 
 }

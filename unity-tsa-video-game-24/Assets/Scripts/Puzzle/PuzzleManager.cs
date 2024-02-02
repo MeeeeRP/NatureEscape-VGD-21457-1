@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private InventoryItem inventoryItem; // item?
+    private MouseFollower draggedItem; // item?
+    private InventoryPage itemInventory; // list
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField] private List<PuzzleSlot> slotPrefabs;
+
+    [SerializeField] private Transform slotParent, peiceParent;
+    // [SerializeField]
+    // private PuzzlePiece piecePrefab;
+
+    void Spawn() {
+
     }
 }
