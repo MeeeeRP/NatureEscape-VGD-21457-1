@@ -11,7 +11,7 @@ public class SwitchCamera : MonoBehaviour
     public int Manager;
 
     public PlayerInteractS playerInteract;
-    bool puzzleOne = false;
+    private bool puzzleOne = false;
 
 
     public void Start() {

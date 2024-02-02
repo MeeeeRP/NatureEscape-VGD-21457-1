@@ -42,6 +42,13 @@ public class InventoryPage : MonoBehaviour
         }
     }
 
+    internal void ResetAllItems() {
+        foreach (var item in listOfUIItems) {
+            item.ResetData();
+            item.Deselect();
+        }
+    }
+    
     public void UpdateData(int itemIndex, Sprite itemImage) {
         if (listOfUIItems.Count > itemIndex) {
             listOfUIItems[itemIndex].SetData(itemImage);

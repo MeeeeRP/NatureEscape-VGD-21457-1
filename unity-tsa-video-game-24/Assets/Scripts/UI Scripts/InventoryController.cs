@@ -13,19 +13,39 @@ public class InventoryController : MonoBehaviour
     bool puzzleOne = false;
 
     // public int inventorySize = 10;
+    
+    public List<InventoryItemStruct> initialItems = new List<InventoryItemStruct>();
+    
     private void Start()
     {
         PrepareUI();
-        // inventoryData.Initialize();
+        PrepareInventoryData();
         PlayerInteractS.fairyTalk += InventoryShow;
     }
 
+    private void PrepareInventoryData() {
+        inventoryData.Initialize();
+        inventoryData.OnInventoryUpdated += UpdateInventoryUI;
+        foreach (InventoryItemStruct item in initialItems) {
+            if (item.IsEmpty) {
+                continue;
+            }
+            inventoryData.AddItem(item);
+        }
+    }
+
+    private void UpdateInventoryUI(Dictionary<int, InventoryItemStruct> inventoryState) {
+        inventoryUI.ResetAllItems();
+        foreach (var item in inventoryState) {
+            inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage);
+        }
+    }
     private void PrepareUI()
     {
         inventoryUI.InitializeInventoryUI(inventoryData.Size);
         this.inventoryUI.OnDescriptionRequested += HandleDescriptionRequest;
-        this.inventoryUI.OnSwapItems += HandleSwapItems;
-        this.inventoryUI.OnStartDragging += HandleStartDragging;
+        // this.inventoryUI.OnSwapItems += HandleSwapItems;
+        this.inventoryUI.OnStartDragging += HandleDragging;
         this.inventoryUI.OnItemActionRequested += HandleItemActionRequest;
     }
 
@@ -34,15 +54,19 @@ public class InventoryController : MonoBehaviour
         
     }
 
-    private void HandleStartDragging(int itemIndex)
+    private void HandleDragging(int itemIndex)
     {
-        
+        InventoryItemStruct inventoryItem = inventoryData.GetItemAt(itemIndex);
+        if (inventoryItem.IsEmpty)
+            return;
+        inventoryUI.CreateDraggedItem(inventoryItem.item.ItemImage);
+        // change for just picture
     }
 
-    private void HandleSwapItems(int itemIndex_1, int itemIndex_2)
-    {
+    // private void HandleSwapItems(int itemIndex_1, int itemIndex_2)
+    // {
         
-    }
+    // }
 
     private void HandleDescriptionRequest(int itemIndex)
     {
