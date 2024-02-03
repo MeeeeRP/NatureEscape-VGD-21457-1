@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8530267237582141881}
   - component: {fileID: 8016173849338429684}
   - component: {fileID: -2291950407765681604}
+  - component: {fileID: -3612047328021577837}
   m_Layer: 0
   m_Name: Seed Slot Base
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 712183631353455357}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4566672, y: -1.9934167, z: -3.9969933}
+  m_LocalPosition: {x: 0.89, y: -1.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51139ece07c33471fb1b10bb5fed368b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Renderer: {fileID: -2291950407765681604}
+  inventoryUI: {fileID: 0}
+  inventoryData: {fileID: 11400000, guid: 1fb5b5672fe38c142843fd51b8c56cba, type: 2}
+  seedOrder: 2
+  slotCollider: {fileID: -3612047328021577837}
+  startPos: {x: 0, y: 0, z: 0}
+  flowerSprite: {fileID: 0}
 --- !u!212 &-2291950407765681604
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97,3 +105,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &-3612047328021577837
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712183631353455357}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15

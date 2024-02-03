@@ -55,7 +55,7 @@ public class SwitchCamera : MonoBehaviour
         Camera_2 = Camera.main;
     }
 
-    public void ChangeCamera() {
+    private void ChangeCamera() {
         GetComponent<Animator>().SetTrigger("Change");
         print("change trigger");
         puzzleOne = true;

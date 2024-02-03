@@ -13,8 +13,6 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHand
 {
     [SerializeField]
     private Image itemImage;
-    // [SerializeField]
-    // private TMP_Text quantityTxt;
 
     [SerializeField]
     private Image borderImage;
@@ -22,8 +20,15 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHand
     public event Action<InventoryItem> OnItemClicked,
         OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag,
         OnRightMouseBtnClick;
-
+    // private SpriteRenderer sRenderer;
+    // private PuzzleSlot pSlot;
         private bool empty = true;
+
+        //this probably messes stuff up
+    // public void Initialize(PuzzleSlot slot) {
+    //     sRenderer.sprite = slot.Renderer.sprite;
+    //     pSlot = slot;
+    // }
 
         public void Awake() {
             ResetData();
@@ -33,16 +38,16 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHand
         public void ResetData() {
             this.itemImage.gameObject.SetActive(false);
             empty = true;
+            print("reset data run");
         }
 
         public void Deselect() {
             borderImage.enabled = false;
         }
 
-        public void SetData(Sprite sprite) { // , int quantity
+        public void SetData(Sprite sprite) { 
             this.itemImage.gameObject.SetActive(true);
             this.itemImage.sprite = sprite;
-            // this.quantityTxt.text = quantity + "";
             empty = false;
         }
 
@@ -52,9 +57,6 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHand
 
     public void OnPointerClick(PointerEventData pointerData)
     {
-        // if (empty) {
-        //     return;
-        // }
         if (pointerData.button == PointerEventData.InputButton.Right) {
             OnRightMouseBtnClick?.Invoke(this);
         } else {

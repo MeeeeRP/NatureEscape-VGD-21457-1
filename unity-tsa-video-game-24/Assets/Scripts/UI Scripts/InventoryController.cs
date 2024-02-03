@@ -88,7 +88,7 @@ private void OnDestroy()
     }
 }
 
-    public void InventoryShow() {
+    private void InventoryShow() {
         // need to change so it is not on button or update (key input)
         // Make a result of delegate
 

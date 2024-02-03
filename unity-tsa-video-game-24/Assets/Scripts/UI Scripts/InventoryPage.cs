@@ -18,8 +18,9 @@ public class InventoryPage : MonoBehaviour
     [SerializeField]
     private MouseFollower mouseFollower;
 
-    List<InventoryItem> listOfUIItems = new List<InventoryItem>();
-    private int currentlyDraggedItemIndex = -1;
+    public List<InventoryItem> listOfUIItems = new List<InventoryItem>();
+    public int currentlyDraggedItemIndex = -1;
+    public int lastDraggedItemIndex = -1;
 
     public event Action<int> OnDescriptionRequested, OnItemActionRequested, OnStartDragging;
     public event Action<int, int> OnSwapItems;
@@ -81,6 +82,7 @@ public class InventoryPage : MonoBehaviour
     private void ResetDraggedItem()
     {
         mouseFollower.Toggle(false);
+        lastDraggedItemIndex = currentlyDraggedItemIndex;
         currentlyDraggedItemIndex = -1;
     }
 
@@ -91,6 +93,7 @@ public class InventoryPage : MonoBehaviour
             return;
         }
         currentlyDraggedItemIndex = index;
+        lastDraggedItemIndex=index;
         HandleItemSelection(item);
         OnStartDragging?.Invoke(index);
     }
