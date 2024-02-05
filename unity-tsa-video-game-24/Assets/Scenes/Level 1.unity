@@ -18666,7 +18666,7 @@ GameObject:
   - component: {fileID: 7585714430371009962}
   m_Layer: 0
   m_Name: Gate
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19071,6 +19071,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4366826903119680360, guid: e6f568a2f92149e4cb8a39e980a3799c, type: 3}
       propertyPath: m_Name
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366826903119680360, guid: e6f568a2f92149e4cb8a39e980a3799c, type: 3}
+      propertyPath: m_TagString
       value: Finish
       objectReference: {fileID: 0}
     - target: {fileID: 5676223256529453339, guid: e6f568a2f92149e4cb8a39e980a3799c, type: 3}
