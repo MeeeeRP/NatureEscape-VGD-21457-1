@@ -10,11 +10,11 @@ public class PlayerInteractS : MonoBehaviour
 
     // event code =>
     public delegate void LevelOneEvent();
-    public static LevelOneEvent fairyTalk;
+    public static event LevelOneEvent fairyTalk;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // interactCollider = GetComponent<Collider2D>();
         rightInteractOffset = transform.position;

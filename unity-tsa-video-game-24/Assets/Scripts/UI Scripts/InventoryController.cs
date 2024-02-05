@@ -10,9 +10,11 @@ public class InventoryController : MonoBehaviour
 
     [SerializeField]
     private InventorySO inventoryData;
-    bool puzzleOne = false;
+    private bool puzzleOne = false;
 
     // public int inventorySize = 10;
+
+
     
     public List<InventoryItemStruct> initialItems = new List<InventoryItemStruct>();
     
@@ -93,18 +95,23 @@ private void OnDestroy()
         // Make a result of delegate
 
             // if (inventoryUI.isActiveAndEnabled == false) {
-                inventoryUI.Show();
                 foreach (var item in inventoryData.GetCurrentInventoryState())
                 {
                     inventoryUI.UpdateData(item.Key,
                     item.Value.item.ItemImage);
                 }
+                Invoke("ShowInventoryTemp", .40f);
+                // inventoryUI.Show();
             // } else {
             //     inventoryUI.Hide();
             // }
         // PlayerInteractS.fairyTalk+= InventoryShow;
         puzzleOne= true;
         OnDestroy();
+    }
+
+    private void ShowInventoryTemp() {
+        inventoryUI.Show();
     }
 
 

@@ -15,12 +15,12 @@ MonoBehaviour:
   inventoryItems:
   - item: {fileID: 11400000, guid: ace1e938215d1df47982ca927e639b3a, type: 2}
   - item: {fileID: 11400000, guid: aaa2d2af5437c7c4a90febd259f5c2d6, type: 2}
-  - item: {fileID: 11400000, guid: 925e6b8c114d23f4aa99198465118aae, type: 2}
-  - item: {fileID: 11400000, guid: d37b50616cce9c647848986b12c23266, type: 2}
-  - item: {fileID: 11400000, guid: 5ed2801d007f76942b799a607df3f31d, type: 2}
-  - item: {fileID: 11400000, guid: 702d2df2fb5fd094ca61bf15d35476a1, type: 2}
-  - item: {fileID: 11400000, guid: 90a0f5ec7727ac24cbae377341768549, type: 2}
-  - item: {fileID: 11400000, guid: 1699e19bd25d2644fab4dd8ed50caf7e, type: 2}
-  - item: {fileID: 11400000, guid: 278c84c0960abe94688d3ff823997ace, type: 2}
   - item: {fileID: 11400000, guid: 0ec03ec333c797749bfe1c4463397f06, type: 2}
+  - item: {fileID: 11400000, guid: 278c84c0960abe94688d3ff823997ace, type: 2}
+  - item: {fileID: 11400000, guid: 1699e19bd25d2644fab4dd8ed50caf7e, type: 2}
+  - item: {fileID: 11400000, guid: 90a0f5ec7727ac24cbae377341768549, type: 2}
+  - item: {fileID: 11400000, guid: 702d2df2fb5fd094ca61bf15d35476a1, type: 2}
+  - item: {fileID: 11400000, guid: 5ed2801d007f76942b799a607df3f31d, type: 2}
+  - item: {fileID: 11400000, guid: d37b50616cce9c647848986b12c23266, type: 2}
+  - item: {fileID: 11400000, guid: 925e6b8c114d23f4aa99198465118aae, type: 2}
   <Size>k__BackingField: 10

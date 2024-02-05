@@ -25,7 +25,7 @@ public class PuzzleSlot : MonoBehaviour
 
     // private Vector3 mousePos;
 
-    public void Start() {
+    private void Start() {
         PlayerInteractS.fairyTalk += PuzzleStart;
         startPos = transform.position;
     }

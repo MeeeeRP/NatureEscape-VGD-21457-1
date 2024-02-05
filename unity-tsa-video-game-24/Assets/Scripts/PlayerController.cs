@@ -150,5 +150,13 @@ public class PlayerController : MonoBehaviour
         LockMovement();
         spriteRenderer.enabled = false;
         PlayerInteractS.fairyTalk -= PuzzleOne;
+        InventoryPage.gardenComplete += PuzzleOver;
+    }
+
+    private void PuzzleOver() {
+        puzzle = false;
+        Invoke("UnlockMovement", 2f);
+        spriteRenderer.enabled = true;
+        InventoryPage.gardenComplete -= PuzzleOver;
     }
 }

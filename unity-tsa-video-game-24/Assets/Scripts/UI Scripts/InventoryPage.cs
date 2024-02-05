@@ -18,6 +18,11 @@ public class InventoryPage : MonoBehaviour
     [SerializeField]
     private MouseFollower mouseFollower;
 
+    // private PlayerController playerControl;
+    
+    public delegate void LevelOnePuzzleOver();
+    public static event LevelOnePuzzleOver gardenComplete;
+
     public List<InventoryItem> listOfUIItems = new List<InventoryItem>();
     public int currentlyDraggedItemIndex = -1;
     public int lastDraggedItemIndex = -1;
@@ -29,6 +34,18 @@ public class InventoryPage : MonoBehaviour
         Hide();
         mouseFollower.Toggle(false);
         itemDescription.ResetDescription();
+    }
+
+    private void Update() {
+        for (int i = 0; i < listOfUIItems.Count; i++) {
+            if (!listOfUIItems[i].empty) {
+                return;
+            }
+        }
+        Hide();
+        gardenComplete?.Invoke();
+
+
     }
     public void InitializeInventoryUI(int inventorySize) {
         for (int i = 0; i < inventorySize; i++) {

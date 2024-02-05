@@ -10,25 +10,33 @@ public class SwitchCamera : MonoBehaviour
     public Camera Camera_2;
     public int Manager;
 
-    public PlayerInteractS playerInteract;
+    private PlayerInteractS playerInteract;
+    private InventoryPage inventoryControl;
+
     private bool puzzleOne = false;
+    private bool puzzleOver = false;
 
 
-    public void Start() {
+    private void Start() {
         //This gets the Main Camera from the Scene
         Camera_1 = Camera.main;
         //This enables Main Camera
         Camera_1.enabled = true;
         //Use this to disable secondary Camera
         Camera_2.enabled = false;
-        PlayerInteractS.fairyTalk += ChangeCamera;
+        PlayerInteractS.fairyTalk += PuzzleCamera;
     }
 
     private void OnDestroy()
 {
-    if (puzzleOne)
+    if (puzzleOne && !puzzleOver)
     {
-        PlayerInteractS.fairyTalk -= ChangeCamera;
+        PlayerInteractS.fairyTalk -= PuzzleCamera;
+        InventoryPage.gardenComplete += PuzzleEnd;
+
+    }
+    if (puzzleOver) {
+        InventoryPage.gardenComplete -= PuzzleEnd;
     }
 }
 
@@ -45,20 +53,27 @@ public class SwitchCamera : MonoBehaviour
     void Cam_1() {
         Camera_1.enabled = true;
         Camera_2.enabled = false;
-        Camera_1 = Camera.main;
+        // Camera_1 = Camera.main;
 
     }
 
         void Cam_2() {
         Camera_2.enabled = true;
         Camera_1.enabled = false;
-        Camera_2 = Camera.main;
+        // Camera_2 = Camera.main;
     }
 
-    private void ChangeCamera() {
+    private void PuzzleCamera() {
         GetComponent<Animator>().SetTrigger("Change");
         print("change trigger");
         puzzleOne = true;
+        OnDestroy();
+    }
+
+    private void PuzzleEnd() {
+        GetComponent<Animator>().SetTrigger("Change");
+        print("change trigger");
+        puzzleOver = true;
         OnDestroy();
     }
     

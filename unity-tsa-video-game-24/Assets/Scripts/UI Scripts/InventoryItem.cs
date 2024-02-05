@@ -22,7 +22,7 @@ public class InventoryItem : MonoBehaviour, IPointerClickHandler, IBeginDragHand
         OnRightMouseBtnClick;
     // private SpriteRenderer sRenderer;
     // private PuzzleSlot pSlot;
-        private bool empty = true;
+        public bool empty = true;
 
         //this probably messes stuff up
     // public void Initialize(PuzzleSlot slot) {
