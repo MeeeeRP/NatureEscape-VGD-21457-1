@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRender;
 
     bool canMove = true;
     bool puzzle = false;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRender = GetComponent<SpriteRenderer>();
         PlayerInteractS.fairyTalk += PuzzleOne;
 
     }
@@ -64,9 +64,9 @@ public class PlayerController : MonoBehaviour
 
             // Set direction of sprite to movement direction
             if (movementInput.x < 0) {
-                spriteRenderer.flipX = true;
+                spriteRender.flipX = true;
             } else if (movementInput.x > 0) {
-                spriteRenderer.flipX = false;
+                spriteRender.flipX = false;
 
             }
             // UpdateAnimation();
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerInteract() {
         LockMovement();
-        if(spriteRenderer.flipX == true) {
+        if(spriteRender.flipX == true) {
         playerInteract.InteractLeft();
         } else {
         playerInteract.InteractRight();
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         print("2... puzzle one start");
         puzzle = true;
         LockMovement();
-        spriteRenderer.enabled = false;
+        spriteRender.enabled = false;
         PlayerInteractS.fairyTalk -= PuzzleOne;
         InventoryPage.gardenComplete += PuzzleOver;
     }
@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
     private void PuzzleOver() {
         puzzle = false;
         UnlockMovement();
-        spriteRenderer.enabled = true;
+        spriteRender.enabled = true;
         InventoryPage.gardenComplete -= PuzzleOver;
     }
 }

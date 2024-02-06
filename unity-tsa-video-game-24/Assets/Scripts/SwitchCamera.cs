@@ -13,6 +13,8 @@ public class SwitchCamera : MonoBehaviour
     public PlayerInteractS playerInteract;
     public InventoryPage inventoryControl;
 
+    public Animator changeAnimator;
+
     private bool puzzleOne = false;
     private bool puzzleOver = false;
 
@@ -21,6 +23,7 @@ public class SwitchCamera : MonoBehaviour
 
 
     private void Start() {
+        changeAnimator = GetComponent<Animator>();
         //This gets the Main Camera from the Scene
         Camera_1 = Camera.main;
         //This enables Main Camera
@@ -34,11 +37,13 @@ public class SwitchCamera : MonoBehaviour
 {
     if (puzzleOne && !puzzleOver)
     {
+        if (cameraSwitch == 2) {
         PlayerInteractS.fairyTalk -= PuzzleCamera;
+        }
         InventoryPage.gardenComplete += PuzzleEnd;
 
     }
-    if (puzzleOver) {
+    if (puzzleOver && (cameraSwitchBack ==1)) {
         InventoryPage.gardenComplete -= PuzzleEnd;
     }
 }
@@ -67,23 +72,22 @@ public class SwitchCamera : MonoBehaviour
     }
 
     private void PuzzleCamera() {
-        GetComponent<Animator>().SetTrigger("Change");
+        changeAnimator.SetTrigger("Change");
         print("change trigger");
         puzzleOne = true;
         cameraSwitch++;
-        if (cameraSwitch == 2) {
+        print("cameraSwitch: "+cameraSwitch);
         OnDestroy();
-        }
+    
     }
 
     private void PuzzleEnd() {
-        GetComponent<Animator>().SetTrigger("Change");
+        changeAnimator.SetTrigger("Change");
         print("change trigger");
         puzzleOver = true;
         cameraSwitchBack++;
-        if (cameraSwitchBack == 2) {
+        print("cameraSwitchBack: "+cameraSwitchBack);
         OnDestroy();
-        }
     }
     
 }

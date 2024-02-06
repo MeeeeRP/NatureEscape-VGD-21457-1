@@ -42,8 +42,8 @@ public class InventoryPage : MonoBehaviour
                 return;
             }
         }
-        Hide();
         gardenComplete?.Invoke();
+        Hide();
 
 
     }
