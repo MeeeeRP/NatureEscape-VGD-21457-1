@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     bool canMove = true;
     bool puzzle = false;

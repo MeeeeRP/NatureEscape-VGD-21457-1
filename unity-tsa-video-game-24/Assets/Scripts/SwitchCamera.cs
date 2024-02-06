@@ -10,11 +10,14 @@ public class SwitchCamera : MonoBehaviour
     public Camera Camera_2;
     public int Manager;
 
-    private PlayerInteractS playerInteract;
-    private InventoryPage inventoryControl;
+    public PlayerInteractS playerInteract;
+    public InventoryPage inventoryControl;
 
     private bool puzzleOne = false;
     private bool puzzleOver = false;
+
+    public int cameraSwitch = 0;
+    public int cameraSwitchBack = 0;
 
 
     private void Start() {
@@ -67,14 +70,20 @@ public class SwitchCamera : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Change");
         print("change trigger");
         puzzleOne = true;
+        cameraSwitch++;
+        if (cameraSwitch == 2) {
         OnDestroy();
+        }
     }
 
     private void PuzzleEnd() {
         GetComponent<Animator>().SetTrigger("Change");
         print("change trigger");
         puzzleOver = true;
+        cameraSwitchBack++;
+        if (cameraSwitchBack == 2) {
         OnDestroy();
+        }
     }
     
 }

@@ -10993,6 +10993,8 @@ MonoBehaviour:
   Camera_1: {fileID: 519420031}
   Camera_2: {fileID: 1847096319}
   Manager: 0
+  playerInteract: {fileID: 1916384477}
+  inventoryControl: {fileID: 797127725}
 --- !u!1 &471142375
 GameObject:
   m_ObjectHideFlags: 0
@@ -17241,6 +17243,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e49ce33f8f704b379d134b4dc9b638b, type: 3}
+--- !u!95 &1218684565 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1787293950316594449, guid: ae452270e503b45489fc7ddd793c7ae3, type: 3}
+  m_PrefabInstance: {fileID: 4299053441553699413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1255232785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18411,6 +18418,22 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 5ed2801d007f76942b799a607df3f31d, type: 2}
   - item: {fileID: 11400000, guid: d37b50616cce9c647848986b12c23266, type: 2}
   - item: {fileID: 11400000, guid: 925e6b8c114d23f4aa99198465118aae, type: 2}
+--- !u!212 &1851786478 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2618745721441888516, guid: 849ff447af528de44840d1af79403ba2, type: 3}
+  m_PrefabInstance: {fileID: 2783678901619628230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1916384477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1450505973225667476, guid: 849ff447af528de44840d1af79403ba2, type: 3}
+  m_PrefabInstance: {fileID: 2783678901619628230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397e8638f424a4d0f9ab913bb0b84cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2021892358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18561,6 +18584,10 @@ PrefabInstance:
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 9014187463245665850, guid: 849ff447af528de44840d1af79403ba2, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1851786478}
+    - target: {fileID: 9014187463245665850, guid: 849ff447af528de44840d1af79403ba2, type: 3}
       propertyPath: collisionOffset
       value: 0.01
       objectReference: {fileID: 0}
@@ -18584,6 +18611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fairy
       objectReference: {fileID: 0}
+    - target: {fileID: 1226469105749147252, guid: ae452270e503b45489fc7ddd793c7ae3, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1218684565}
     - target: {fileID: 4107969622209583333, guid: ae452270e503b45489fc7ddd793c7ae3, type: 3}
       propertyPath: m_SortingOrder
       value: 2

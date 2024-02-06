@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+public class Fairy : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     private PlayerInteractS playerInteract;
 
     private void Talk() {
@@ -14,15 +14,11 @@ public class NPC : MonoBehaviour
 
     }
 
-    public void Awake() {
-        animator= GetComponent<Animator>();   
-    }    
 
     // Start is called before the first frame update
     void Start()
     {
-    PlayerInteractS.fairyTalk -= Talk;
-    // PlayerInteractS.fairyTalk -= Talk;
+    animator= GetComponent<Animator>();   
     PlayerInteractS.fairyTalk += Talk;
     }
 
