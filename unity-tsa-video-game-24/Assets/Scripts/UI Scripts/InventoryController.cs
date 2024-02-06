@@ -13,7 +13,6 @@ public class InventoryController : MonoBehaviour
     private bool puzzleOne = false;
 
     // public int inventorySize = 10;
-    public int showCount = 0;
 
     
     public List<InventoryItemStruct> initialItems = new List<InventoryItemStruct>();
@@ -107,10 +106,9 @@ private void OnDestroy()
             // }
         // PlayerInteractS.fairyTalk+= InventoryShow;
         puzzleOne= true;
-        showCount++;
-        if (showCount == 2) {
+  
         OnDestroy();
-        }
+
     }
 
     private void ShowInventoryTemp() {
