@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
     bool canMove = true;
     bool puzzle = false;
@@ -138,12 +138,12 @@ public class PlayerController : MonoBehaviour
         canMove = false;
     }
 
-    public void UnlockMovement() {
+    private void UnlockMovement() {
         canMove = true;
         print("movementLocked");
     }
 
-    public void PuzzleOne() {
+    private void PuzzleOne() {
         // need to trigger camera switch here by activating "Change" trigger
         print("2... puzzle one start");
         puzzle = true;
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     private void PuzzleOver() {
         puzzle = false;
-        Invoke("UnlockMovement", 2f);
+        UnlockMovement();
         spriteRenderer.enabled = true;
         InventoryPage.gardenComplete -= PuzzleOver;
     }

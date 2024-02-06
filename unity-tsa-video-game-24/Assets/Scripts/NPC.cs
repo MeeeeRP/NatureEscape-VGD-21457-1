@@ -5,19 +5,24 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     Animator animator;
+    private PlayerInteractS playerInteract;
 
-    public void Talk() {
+    private void Talk() {
         animator.SetTrigger("Talk");
         print("npc talk aniamation");
         PlayerInteractS.fairyTalk -= Talk;
 
     }
-    
+
+    public void Awake() {
+        animator= GetComponent<Animator>();   
+    }    
 
     // Start is called before the first frame update
     void Start()
     {
-    animator= GetComponent<Animator>();   
+    PlayerInteractS.fairyTalk -= Talk;
+    // PlayerInteractS.fairyTalk -= Talk;
     PlayerInteractS.fairyTalk += Talk;
     }
 

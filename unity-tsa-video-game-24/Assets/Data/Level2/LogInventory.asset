@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06288471b079a34f9a5f2a0af45589b, type: 3}
+  m_Name: LogInventory
+  m_EditorClassIdentifier: 
+  inventoryItems:
+  - item: {fileID: 11400000, guid: 52e0244f7a034f046806ddbbdd3c6217, type: 2}
+  - item: {fileID: 11400000, guid: 43ea46593389daf4cb32fc89eb17fa4e, type: 2}
+  - item: {fileID: 11400000, guid: 7ed0c24da6ac88e418eb65f4d3475e0e, type: 2}
+  - item: {fileID: 11400000, guid: 1de688a8414a4c041a5be31f059b7d9c, type: 2}
+  - item: {fileID: 11400000, guid: 07971ef7e36110842b515c50c398ffe6, type: 2}
+  - item: {fileID: 11400000, guid: 392d1622f94c10a4f9ff63462af36d1c, type: 2}
+  - item: {fileID: 11400000, guid: b1eb10bbf1277ac44a05089a98ff460f, type: 2}
+  - item: {fileID: 11400000, guid: fea9b8dab79b4ba47a93e0fe170d9621, type: 2}
+  - item: {fileID: 11400000, guid: f136ca3f39000c5498839dede875619e, type: 2}
+  <Size>k__BackingField: 9
