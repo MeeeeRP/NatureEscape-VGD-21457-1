@@ -17,6 +17,9 @@ public class InventoryPage : MonoBehaviour
 
     [SerializeField]
     private MouseFollower mouseFollower;
+    public bool levelTwo= false;
+    public bool levelOne= true;
+
 
     // private PlayerController playerControl;
     //hi
@@ -33,8 +36,10 @@ public class InventoryPage : MonoBehaviour
     private void Awake() {
         Hide();
         mouseFollower.Toggle(false);
+        if (!levelTwo) {
         itemDescription.ResetDescription();
-    }
+        }
+    }//j=hi
 
     private void Update() {
         for (int i = 0; i < listOfUIItems.Count; i++) {
@@ -43,6 +48,8 @@ public class InventoryPage : MonoBehaviour
             }
         }
         gardenComplete?.Invoke();
+        levelOne = false;
+        levelTwo= true;
         Hide();
 
 
@@ -136,7 +143,9 @@ public class InventoryPage : MonoBehaviour
 
     public void ResetSelection()
     {
+        if (!levelTwo) {
         itemDescription.ResetDescription();
+        }
         DeselectAllItems();
     }
 
@@ -154,7 +163,9 @@ public class InventoryPage : MonoBehaviour
 
     internal void UpdateDescription(int itemIndex, Sprite itemImage, string name, string description)
     {
+        if (!levelTwo) {
         itemDescription.SetDescription(itemImage, name, description);
+        }
         DeselectAllItems();
         listOfUIItems[itemIndex].Select();
     }

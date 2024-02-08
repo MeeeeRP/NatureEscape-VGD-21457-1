@@ -2072,6 +2072,110 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &40614785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40614788}
+  - component: {fileID: 40614787}
+  - component: {fileID: 40614786}
+  m_Layer: 0
+  m_Name: LogSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &40614786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40614785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51139ece07c33471fb1b10bb5fed368b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Renderer: {fileID: 40614787}
+  inventoryUI: {fileID: 0}
+  inventoryData: {fileID: 11400000, guid: 1fb5b5672fe38c142843fd51b8c56cba, type: 2}
+  seedOrder: 2
+  slotCollider: {fileID: -3612047328021577837, guid: 0a2f22331530d4cb196bd6966cbcbeba, type: 3}
+  startPos: {x: 0, y: 0, z: 0}
+  flowerSprite: {fileID: 0}
+--- !u!212 &40614787
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40614785}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -733642340, guid: 78c46098ef9027143a42233659007154, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &40614788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40614785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.4723, y: -1.2149, z: 0}
+  m_LocalScale: {x: 1.909429, y: 1.909429, z: 1.909429}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76138643 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 468391891816942673, guid: 849ff447af528de44840d1af79403ba2, type: 3}
@@ -26801,7 +26905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 797127725}
   inventoryData: {fileID: 11400000, guid: 1b5645f17af424a4db53489a88601b48, type: 2}
-  showCount: 1
   initialItems:
   - item: {fileID: 11400000, guid: 52e0244f7a034f046806ddbbdd3c6217, type: 2}
   - item: {fileID: 11400000, guid: 43ea46593389daf4cb32fc89eb17fa4e, type: 2}
@@ -26961,6 +27064,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3701844447362746862, guid: 56b646d9550d1034ea0ca39acdb5c24f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4442885634715414101, guid: 56b646d9550d1034ea0ca39acdb5c24f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -27008,6 +27115,10 @@ PrefabInstance:
     - target: {fileID: 4550504098234066578, guid: 56b646d9550d1034ea0ca39acdb5c24f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751101169211956647, guid: 56b646d9550d1034ea0ca39acdb5c24f, type: 3}
+      propertyPath: itemDescription
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4892614526943785279, guid: 56b646d9550d1034ea0ca39acdb5c24f, type: 3}
       propertyPath: m_Pivot.x
@@ -27141,7 +27252,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 160105587586273144, guid: 56b646d9550d1034ea0ca39acdb5c24f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -27472,3 +27584,4 @@ SceneRoots:
   - {fileID: 3224060987388541311}
   - {fileID: 765210451}
   - {fileID: 7153749350693774716}
+  - {fileID: 40614788}

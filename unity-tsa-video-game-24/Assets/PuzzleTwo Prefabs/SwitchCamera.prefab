@@ -115,5 +115,6 @@ MonoBehaviour:
   Manager: 0
   playerInteract: {fileID: 0}
   inventoryControl: {fileID: 0}
+  changeAnimator: {fileID: 8653886721492080188}
   cameraSwitch: 0
   cameraSwitchBack: 0

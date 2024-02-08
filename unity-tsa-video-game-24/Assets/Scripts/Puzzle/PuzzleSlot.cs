@@ -35,7 +35,7 @@ public class PuzzleSlot : MonoBehaviour
         transform.Translate(0, 0.02f, 0);
         Renderer.sprite = flowerSprite;
     }
-
+// hi
     private void OnMouseOver()
     {
         if (puzzleOne && inventoryUI.lastDraggedItemIndex != -1)
