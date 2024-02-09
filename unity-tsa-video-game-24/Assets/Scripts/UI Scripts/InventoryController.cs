@@ -14,6 +14,8 @@ public class InventoryController : MonoBehaviour
 
     // public int inventorySize = 10;
 
+    private PlayerInteractS playerInteract;
+
     
     public List<InventoryItemStruct> initialItems = new List<InventoryItemStruct>();
     
