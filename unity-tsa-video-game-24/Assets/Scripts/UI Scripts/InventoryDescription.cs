@@ -15,8 +15,12 @@ public class InventoryDescription : MonoBehaviour
     [SerializeField]
     private TMP_Text description;
 
+    public InventoryPage inventoryUI;
+
     public void Awake() {
+        if (!inventoryUI.levelTwo) {
         ResetDescription();
+        }
     }
 
     public void ResetDescription() {

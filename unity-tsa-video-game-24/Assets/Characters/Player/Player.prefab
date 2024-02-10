@@ -150,6 +150,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   isMoving: 1
   playerInteract: {fileID: 1450505973225667476}
+  spriteRender: {fileID: 0}
 --- !u!50 &4208334990961816665
 Rigidbody2D:
   serializedVersion: 4
@@ -334,3 +335,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactCollider: {fileID: 260055214657440352}
+  puzzleHappen: 0

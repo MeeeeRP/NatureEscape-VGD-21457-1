@@ -14,14 +14,16 @@ public class NPC : MonoBehaviour
     [SerializeField]
     private TMP_Text dialogueText;
     public string[] dialogue;
-    private int index;
+    public int index;
 
     public float wordSpeed;
     // public bool playerIsClose;
 
     void Start() {
         PlayerInteractS.fairyTalk += PuzzleOneDialogue;
-        InventoryPage.gardenComplete += CloseDialogue;
+        InventoryPage.gardenComplete += EndPuzzle;
+        CloseDialogue();
+        index = 0;
     }
     // Update is called once per frame
 
@@ -35,6 +37,7 @@ public class NPC : MonoBehaviour
     private void OnDestroy() {
         // if (puzzleOne) {
         PlayerInteractS.fairyTalk -= PuzzleOneDialogue;
+        index = 1;
         // } ugh
     }
 
@@ -56,11 +59,16 @@ public class NPC : MonoBehaviour
         
     }
 
+    private void EndPuzzle() {
+        CloseDialogue();
+        InventoryPage.gardenComplete -= EndPuzzle;
+
+    }
+
     private void CloseDialogue() {
         dialogueText.text="";
-        index=0;
+        // index=0;
         dialoguePanel.SetActive(false);
-        InventoryPage.gardenComplete -= CloseDialogue;
     }
 
 //hi

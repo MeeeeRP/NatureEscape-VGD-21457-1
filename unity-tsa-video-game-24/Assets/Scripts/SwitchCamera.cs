@@ -33,20 +33,22 @@ public class SwitchCamera : MonoBehaviour
         PlayerInteractS.fairyTalk += PuzzleCamera;
     }
 
-    private void OnDestroy()
+private void OnDestroy()
 {
     if (puzzleOne && !puzzleOver)
     {
-        if (cameraSwitch == 2) {
-        PlayerInteractS.fairyTalk -= PuzzleCamera;
+        if (cameraSwitch == 2)
+        {
+            PlayerInteractS.fairyTalk -= PuzzleCamera;
         }
         InventoryPage.gardenComplete += PuzzleEnd;
-
     }
-    if (puzzleOver && (cameraSwitchBack ==1)) {
+    if (puzzleOver && cameraSwitchBack == 1)
+    {
         InventoryPage.gardenComplete -= PuzzleEnd;
     }
 }
+
 
     public void ManagerCamera() {
         print("Manager run");

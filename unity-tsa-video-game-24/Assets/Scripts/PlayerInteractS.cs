@@ -6,6 +6,7 @@ public class PlayerInteractS : MonoBehaviour
 {
     public Collider2D interactCollider;
     Vector2 rightInteractOffset;
+    public bool puzzleHappen = false;
     // public NPC npcScript;
 
     // event code =>
@@ -41,9 +42,14 @@ public class PlayerInteractS : MonoBehaviour
         if(other.tag == "NPC") {
             // NPC talk
             print("npc talk trigger");
-
+            if (!puzzleHappen) {
+                fairyTalk?.Invoke();
+                puzzleHappen=true;
+            } else {
+                print("already complete");
+            }
             // npcScript.Talk();
-            fairyTalk?.Invoke();
+
             // print("1... Puzzle one start");
 
         } else if (other.tag == "Object") {
