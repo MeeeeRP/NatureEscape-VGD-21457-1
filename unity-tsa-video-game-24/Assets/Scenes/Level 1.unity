@@ -19091,7 +19091,6 @@ MonoBehaviour:
   dialogueText: {fileID: 378346230}
   dialogue:
   - Drag and drop the seed pouches to the correct location in the garden
-  - ummm this is number 2
   index: 0
   wordSpeed: 0
 --- !u!1001 &6220727254510561190
@@ -19465,19 +19464,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: m_Spacing.x
-      value: 60
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: m_Spacing.y
-      value: 60
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: m_CellSize.x
-      value: 50
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
       propertyPath: m_CellSize.y
-      value: 50
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9018323647643113156, guid: f7ebafe57b61244be89f03207bcaab60, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

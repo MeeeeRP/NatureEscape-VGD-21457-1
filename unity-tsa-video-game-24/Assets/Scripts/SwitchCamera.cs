@@ -1,9 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwitchCamera : MonoBehaviour
 {
+    // called first
+    private void OnEnable()
+    {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        StartLevel();
+    }
+
+    private void OnDisable() {
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
         //This is Main Camera in the Scene
     public Camera Camera_1;
     //This is the second Camera and is assigned in inspector
@@ -21,8 +41,7 @@ public class SwitchCamera : MonoBehaviour
     public int cameraSwitch = 0;
     public int cameraSwitchBack = 0;
 
-
-    private void Start() {
+    private void StartLevel() {
         changeAnimator = GetComponent<Animator>();
         //This gets the Main Camera from the Scene
         Camera_1 = Camera.main;
@@ -31,19 +50,25 @@ public class SwitchCamera : MonoBehaviour
         //Use this to disable secondary Camera
         Camera_2.enabled = false;
         PlayerInteractS.fairyTalk += PuzzleCamera;
+        puzzleOne = false;
+        puzzleOne = false;
+    }
+
+    private void Start() {
+        // startLevel();
     }
 
 private void OnDestroy()
 {
     if (puzzleOne && !puzzleOver)
     {
-        if (cameraSwitch == 2)
-        {
+        // if (cameraSwitch == 2)
+        // {
             PlayerInteractS.fairyTalk -= PuzzleCamera;
-        }
+        // }
         InventoryPage.gardenComplete += PuzzleEnd;
     }
-    if (puzzleOver && cameraSwitchBack == 1)
+    if (puzzleOver)
     {
         InventoryPage.gardenComplete -= PuzzleEnd;
     }
@@ -87,7 +112,7 @@ private void OnDestroy()
         changeAnimator.SetTrigger("Change");
         print("change trigger");
         puzzleOver = true;
-        cameraSwitchBack++;
+        // cameraSwitchBack++;
         print("cameraSwitchBack: "+cameraSwitchBack);
         OnDestroy();
     }

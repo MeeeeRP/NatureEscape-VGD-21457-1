@@ -3,9 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        StartLevel();
+    }
+
+    private void OnDisable() {
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private PlayerInteractS playerInteract;
     private InventoryPage inventoryUI;
     [SerializeField]
@@ -15,15 +34,20 @@ public class NPC : MonoBehaviour
     private TMP_Text dialogueText;
     public string[] dialogue;
     public int index;
-
+    private bool puzzleOne = false;
+    private bool puzzleOver = false;
     public float wordSpeed;
     // public bool playerIsClose;
 
-    void Start() {
+    private void StartLevel() {
+        puzzleOne = false;
+        puzzleOne = false;
         PlayerInteractS.fairyTalk += PuzzleOneDialogue;
-        InventoryPage.gardenComplete += EndPuzzle;
         CloseDialogue();
         index = 0;
+    }
+    void Start() {
+
     }
     // Update is called once per frame
 
@@ -36,8 +60,23 @@ public class NPC : MonoBehaviour
 
     private void OnDestroy() {
         // if (puzzleOne) {
+            print("destroy called");
+        print("puzzleOne: "+puzzleOne +" and puzzleOver: "+puzzleOver);
+        if (puzzleOne && !puzzleOver)
+        print("destroy pass");
+    {
+        // if (cameraSwitch == 2)
+        // {
         PlayerInteractS.fairyTalk -= PuzzleOneDialogue;
-        index = 1;
+        print("remove dialogye");        // }
+        InventoryPage.gardenComplete += EndPuzzle;
+    }
+    if (puzzleOver)
+    {
+        print("destroy 2 pass");
+
+        InventoryPage.gardenComplete -= EndPuzzle;
+    }
         // } ugh
     }
 
@@ -52,23 +91,27 @@ public class NPC : MonoBehaviour
     }
 
     private void PuzzleOneDialogue() {
+        puzzleOne = true;
         print("dialogue called");
         dialoguePanel.SetActive(true);
         StartCoroutine(Typing());
+
+        index ++;
         OnDestroy();
         
     }
 
     private void EndPuzzle() {
         CloseDialogue();
-        InventoryPage.gardenComplete -= EndPuzzle;
-
+        OnDestroy();
     }
 
     private void CloseDialogue() {
+        print("dialogue close");
         dialogueText.text="";
         // index=0;
         dialoguePanel.SetActive(false);
+        puzzleOver = true;
     }
 
 //hi
