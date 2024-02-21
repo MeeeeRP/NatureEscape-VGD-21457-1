@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class NPC : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
     private void OnEnable()
     {
@@ -40,15 +40,16 @@ public class NPC : MonoBehaviour
     // public bool playerIsClose;
 
     private void StartLevel() {
+        PlayerInteractS.fairyTalk -= PuzzleOneDialogue;
         puzzleOne = false;
-        puzzleOne = false;
+        puzzleOver = false;
         PlayerInteractS.fairyTalk += PuzzleOneDialogue;
         CloseDialogue();
         index = 0;
     }
-    void Start() {
+    // void Start() {
 
-    }
+    // }
     // Update is called once per frame
 
     IEnumerator Typing() {
@@ -71,7 +72,7 @@ public class NPC : MonoBehaviour
         print("remove dialogye");        // }
         InventoryPage.gardenComplete += EndPuzzle;
     }
-    if (puzzleOver)
+    if (!puzzleOne && puzzleOver)
     {
         print("destroy 2 pass");
 
@@ -102,6 +103,7 @@ public class NPC : MonoBehaviour
     }
 
     private void EndPuzzle() {
+        print("end puzzle run");
         CloseDialogue();
         OnDestroy();
     }
