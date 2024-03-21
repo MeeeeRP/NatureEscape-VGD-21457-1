@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerInteractS : MonoBehaviour
 {
@@ -14,8 +16,26 @@ public class PlayerInteractS : MonoBehaviour
     public static event LevelOneEvent fairyTalk;
 
 
+private void OnEnable()
+    {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        StartLevel();
+    }
+
+    private void OnDisable() {
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     // Start is called before the first frame update
-    private void Start()
+    private void StartLevel()
     {
         // interactCollider = GetComponent<Collider2D>();
         rightInteractOffset = transform.position;
