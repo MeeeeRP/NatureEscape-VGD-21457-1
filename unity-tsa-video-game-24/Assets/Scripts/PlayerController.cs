@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     bool canMove = true;
     bool puzzle = false;
+    public int puzzleNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour
         playerInteract.StopInteract();
     }
 
-    public void LockMovement() {
+    public void LockMovement() {//hi
         canMove = false;
     }
 
@@ -146,16 +147,27 @@ public class PlayerController : MonoBehaviour
     private void PuzzleOne() {
         // need to trigger camera switch here by activating "Change" trigger
         print("2... puzzle one start");
+        spriteRender.enabled = false;
+
         puzzle = true;
         LockMovement();
-        spriteRender.enabled = false;
+        puzzleNum++;
+        if (puzzleNum == 2) {//hi
+            print(puzzleNum);
+            // transform.position = new Vector3(-8, -2);
+        }
+   
         PlayerInteractS.fairyTalk -= PuzzleOne;
         InventoryPage.gardenComplete += PuzzleOver;
     }
 
     private void PuzzleOver() {
         puzzle = false;
-        UnlockMovement();
+            if (puzzleNum == 2) {
+            print(puzzleNum);
+            transform.position = new Vector3(0, -2);
+        }
+        if (puzzleNum==1) {UnlockMovement();}
         spriteRender.enabled = true;
         InventoryPage.gardenComplete -= PuzzleOver;
     }
