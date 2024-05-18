@@ -124,7 +124,9 @@ public class PuzzleSlot : MonoBehaviour
         // for (int i=0; i<4; i++) {
         // Debug.Log(logWeightArray[i].ToString());
         // }
+        if (puzzleTwo) {
         boatScript.AssignWeight(seedOrder, weight);
+        }
         Renderer.sprite = flowerSprite;
     }
 
