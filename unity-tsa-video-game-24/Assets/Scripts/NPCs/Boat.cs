@@ -4,5 +4,13 @@ using UnityEngine;
 
 public class Boat : MonoBehaviour
 {
-    // after gardenComplete follow player
+    // [SerializeField]
+    public int[] logWeightArray = new int[4];
+
+    public int[] AssignWeight(int logNum, int weight) {
+        logWeightArray[logNum]=weight;
+        Debug.Log(logWeightArray.ToString());
+        return logWeightArray;
+    }
+
 }

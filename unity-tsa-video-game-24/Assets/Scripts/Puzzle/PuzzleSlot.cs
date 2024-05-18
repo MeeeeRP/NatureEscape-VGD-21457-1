@@ -18,12 +18,16 @@ public class PuzzleSlot : MonoBehaviour
 
     [SerializeField]
     private int seedOrder;
-    private bool puzzleOne = false;
+    private bool puzzleOne = true;//remember to go back and change
     private bool puzzleTwo = false;
     public Collider2D slotCollider;
     public Vector3 startPos;    
     [SerializeField]
     private Sprite flowerSprite;
+
+    public Boat boatScript;
+
+    private int weight;
 
     // public Camera main;
     // public Camera local;
@@ -56,33 +60,50 @@ public class PuzzleSlot : MonoBehaviour
     public void Start() {
     }
 
-    public void Placed() {
-        transform.position = startPos;
-        transform.Translate(0, 0.02f, 0);
-        Renderer.sprite = flowerSprite;
-    }
+
 
      void OnMouseOver()
     {
+        // Debug.Log(weight);
         // Debug.Log("mouse over "+Renderer.sprite.name);
-        if ((puzzleOne || puzzleTwo) && inventoryUI.lastDraggedItemIndex != -1)
+        // (puzzleOne || puzzleTwo) &&
+        if (inventoryUI.lastDraggedItemIndex != -1)
         {
-
                  if (Input.GetMouseButtonUp(0))
                 {
+                Debug.Log("mouse up "+Renderer.sprite.name);
+
                     InventoryItemStruct inventoryItem = inventoryData.GetItemAt(inventoryUI.lastDraggedItemIndex);
         if (inventoryItem.IsEmpty) {
-            // inventoryUI.ResetSelection();
             return;
         }
         ItemSO item = inventoryItem.item;
             int selectedObject = item.WinOrder;
-            if (selectedObject == seedOrder) {//hi
+            if (puzzleOne) {
+                print("one "+puzzleOne);
+            if (selectedObject == seedOrder) {
                 print("This is the one");
                 Placed();
                 //tell inventory to make it empty
         inventoryUI.listOfUIItems[inventoryUI.lastDraggedItemIndex].ResetData();
             }
+            } else if (puzzleTwo) {
+                print("two "+puzzleTwo);
+
+                print ("placed level two?");
+                // if (selectedObject != seedOrder) {
+                flowerSprite= item.ItemImage;
+                weight = item.WinOrder;
+                
+                Placed();
+        inventoryUI.listOfUIItems[inventoryUI.lastDraggedItemIndex].Deselect();
+
+
+                //tell inventory to make it empty
+        inventoryUI.listOfUIItems[inventoryUI.lastDraggedItemIndex].ResetData();
+            // }
+            }
+
             }
             return;
 
@@ -90,6 +111,21 @@ public class PuzzleSlot : MonoBehaviour
             // currentObject = Selection.objects.OfType<REPLACEME>().FirstOrDefault();
             
         }
+    }
+
+    public void Placed() {
+        transform.position = startPos;
+        if (puzzleOne) {
+        transform.Translate(0, 0.02f, 0);
+        }
+        print("Weight: "+weight);
+        print("Seed Order: "+seedOrder);
+        // logWeightArray[seedOrder]=weight;
+        // for (int i=0; i<4; i++) {
+        // Debug.Log(logWeightArray[i].ToString());
+        // }
+        boatScript.AssignWeight(seedOrder, weight);
+        Renderer.sprite = flowerSprite;
     }
 
     private void OnDestroy() {
