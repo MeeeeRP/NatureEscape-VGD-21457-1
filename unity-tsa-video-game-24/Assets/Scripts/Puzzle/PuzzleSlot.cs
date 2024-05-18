@@ -18,7 +18,7 @@ public class PuzzleSlot : MonoBehaviour
 
     [SerializeField]
     private int seedOrder;
-    private bool puzzleOne = true;//remember to go back and change
+    private bool puzzleOne = false;//remember to go back and change -changed :)
     private bool puzzleTwo = false;
     public Collider2D slotCollider;
     public Vector3 startPos;    
