@@ -13,10 +13,10 @@ public class SwitchCamera : MonoBehaviour
     }
 
     // called second
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
-        StartLevel();
+        StartLevelCam();
     }
 
     private void OnDisable() {
@@ -41,7 +41,7 @@ public class SwitchCamera : MonoBehaviour
     public int cameraSwitch = 0;
     public int cameraSwitchBack = 0;
 
-    private void StartLevel() {
+    private void StartLevelCam() {
         changeAnimator = GetComponent<Animator>();
         //This gets the Main Camera from the Scene
         Camera_1 = Camera.main;
@@ -51,7 +51,7 @@ public class SwitchCamera : MonoBehaviour
         Camera_2.enabled = false;
         PlayerInteractS.fairyTalk += PuzzleCamera;
         puzzleOne = false;
-        puzzleOne = false;
+        // puzzleOne = false;
     }
 
     private void Start() {

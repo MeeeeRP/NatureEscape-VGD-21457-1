@@ -18,8 +18,8 @@ public class PuzzleSlot : MonoBehaviour
 
     [SerializeField]
     private int seedOrder;
-    private bool puzzleOne = false;//remember to go back and change -changed :)
-    private bool puzzleTwo = false;
+    private bool puzzleOneSlot = true;//remember to go back and change //hi
+    private bool puzzleTwoSlot = false;
     public Collider2D slotCollider;
     public Vector3 startPos;    
     [SerializeField]
@@ -43,18 +43,20 @@ public class PuzzleSlot : MonoBehaviour
     }
 
     // called second
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
-        StartLevel();
+        StartLevelSlot();
     }
 
     private void OnDisable() {
         Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    private void StartLevel() {
+    private void StartLevelSlot() {
         PlayerInteractS.fairyTalk += PuzzleStart;
+        print("puzzle 1: "+puzzleOneSlot);
+        print("puzzle 2: "+puzzleTwoSlot);
         startPos = transform.position;
     }
     public void Start() {
@@ -66,7 +68,7 @@ public class PuzzleSlot : MonoBehaviour
     {
         // Debug.Log(weight);
         // Debug.Log("mouse over "+Renderer.sprite.name);
-        // (puzzleOne || puzzleTwo) &&
+        // (puzzleOneSlot || puzzleTwoSlot) &&
         if (inventoryUI.lastDraggedItemIndex != -1)
         {
                  if (Input.GetMouseButtonUp(0))
@@ -79,16 +81,16 @@ public class PuzzleSlot : MonoBehaviour
         }
         ItemSO item = inventoryItem.item;
             int selectedObject = item.WinOrder;
-            if (puzzleOne) {
-                print("one "+puzzleOne);
+            if (puzzleOneSlot) {
+                print("one "+puzzleOneSlot);
             if (selectedObject == seedOrder) {
                 print("This is the one");
                 Placed();
                 //tell inventory to make it empty
         inventoryUI.listOfUIItems[inventoryUI.lastDraggedItemIndex].ResetData();
             }
-            } else if (puzzleTwo) {
-                print("two "+puzzleTwo);
+            } else if (puzzleTwoSlot) {
+                print("two "+puzzleTwoSlot);
 
                 print ("placed level two?");
                 // if (selectedObject != seedOrder) {
@@ -115,7 +117,7 @@ public class PuzzleSlot : MonoBehaviour
 
     public void Placed() {
         transform.position = startPos;
-        if (puzzleOne) {
+        if (puzzleOneSlot) {
         transform.Translate(0, 0.02f, 0);
         }
         print("Weight: "+weight);
@@ -124,26 +126,28 @@ public class PuzzleSlot : MonoBehaviour
         // for (int i=0; i<4; i++) {
         // Debug.Log(logWeightArray[i].ToString());
         // }
-        if (puzzleTwo) {
-        boatScript.AssignWeight(seedOrder, weight);
+        if (puzzleTwoSlot) {
+        Boat.AssignWeight(seedOrder, weight);
         }
         Renderer.sprite = flowerSprite;
     }
 
     private void OnDestroy() {
-        if (puzzleOne) {
+        if (puzzleOneSlot) {
         PlayerInteractS.fairyTalk -= PuzzleStart;
         }
-        if (puzzleTwo) {
+        if (puzzleTwoSlot) {
         PlayerInteractS.fairyTalk -= PuzzleStart;
         }
     }  
     private void PuzzleStart() {
-        if (!puzzleOne) {
-        puzzleOne= true;
-        } else if (puzzleOne) {
-            puzzleOne = false;
-            puzzleTwo = true;
+        if (!puzzleOneSlot && !puzzleTwoSlot) {
+        puzzleOneSlot= true;
+        print("1 Set true");
+        } else if (puzzleOneSlot) {
+        print("2 Set true");
+            puzzleOneSlot = false;
+            puzzleTwoSlot = true;
         }
         OnDestroy();
     }

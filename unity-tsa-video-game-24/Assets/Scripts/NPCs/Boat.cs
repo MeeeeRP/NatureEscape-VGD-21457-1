@@ -5,11 +5,15 @@ using UnityEngine;
 public class Boat : MonoBehaviour
 {
     // [SerializeField]
-    public int[] logWeightArray = new int[4];
+    public static int[] logWeightArray = new int[4];
 
-    public int[] AssignWeight(int logNum, int weight) {
+    public static int[] AssignWeight(int logNum, int weight) {
         logWeightArray[logNum]=weight;
-        Debug.Log(logWeightArray.ToString());
+        foreach(var item in logWeightArray)
+{
+        print(item.ToString()+" ,");
+}
+        Debug.Log(logWeightArray);
         return logWeightArray;
     }
 

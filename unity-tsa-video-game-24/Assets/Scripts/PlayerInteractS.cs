@@ -23,10 +23,10 @@ private void OnEnable()
     }
 
     // called second
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
-        StartLevel();
+        StartLevelInteract();
     }
 
     private void OnDisable() {
@@ -35,7 +35,7 @@ private void OnEnable()
     }
 
     // Start is called before the first frame update
-    private void StartLevel()
+    private void StartLevelInteract()
     {
         // interactCollider = GetComponent<Collider2D>();
         rightInteractOffset = transform.position;
