@@ -15,11 +15,12 @@ public class PuzzleSlot : MonoBehaviour
 
     [SerializeField]
     private InventorySO inventoryData;
+    private static bool switchOver;
 
     [SerializeField]
     private int seedOrder;
-    private bool puzzleOneSlot = true;//remember to go back and change //hi
-    private bool puzzleTwoSlot = false;
+    public static bool puzzleOneSlot = false;//remember to go back and change - changed
+    public static bool puzzleTwoSlot = false;
     public Collider2D slotCollider;
     public Vector3 startPos;    
     [SerializeField]
@@ -54,6 +55,7 @@ public class PuzzleSlot : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void StartLevelSlot() {
+        switchOver = false;
         PlayerInteractS.fairyTalk += PuzzleStart;
         print("puzzle 1: "+puzzleOneSlot);
         print("puzzle 2: "+puzzleTwoSlot);
@@ -141,13 +143,20 @@ public class PuzzleSlot : MonoBehaviour
         }
     }  
     private void PuzzleStart() {
-        if (!puzzleOneSlot && !puzzleTwoSlot) {
-        puzzleOneSlot= true;
-        print("1 Set true");
-        } else if (puzzleOneSlot) {
+        if (!switchOver) {
+            if (!puzzleOneSlot && !puzzleTwoSlot) {
+                puzzleOneSlot= true;
+                print("1 Set true");
+                switchOver = true;
+            }
+        }
+    if (!switchOver) {
+        if (puzzleOneSlot) {
         print("2 Set true");
             puzzleOneSlot = false;
             puzzleTwoSlot = true;
+        }
+        switchOver = true;
         }
         OnDestroy();
     }
